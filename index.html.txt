@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frostella | Helados Saludables</title>
+    <style>
+        /* ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fbff;
+            color: #183b56;
+        }
+        /* BARRA DE NAVEGACIÓN */
+        header {
+            background-color: #ffffff;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #168aad;
+        }
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+        nav button {
+            background-color: #168aad;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        nav button:hover {
+            background-color: #075985;
+            transform: translateY(-2px);
+        }
+        /* SECCIÓN PRINCIPAL */
+        .inicio {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #dff7ff, #ffffff);
+        }
+        .logo-grande {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+        .inicio h1 {
+            font-size: 52px;
+            color: #168aad;
+            margin-bottom: 20px;
+        }
+        .inicio p {
+            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .boton-principal {
+            background-color: #168aad;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .boton-principal:hover {
+            background-color: #075985;
+            transform: scale(1.05);
+        }
+        /* SECCIONES */
+        section {
+            padding: 70px 8%;
+            text-align: center;
+            scroll-margin-top: 90px;
+        }
+        section h2 {
+            font-size: 36px;
+            color: #168aad;
+            margin-bottom: 20px;
+        }
+        .descripcion {
+            font-size: 17px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+        /* MENÚ DE HELADOS */
+        .menu {
+            background-color: #ffffff;
+        }
+        .sabores {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+        .helado {
+            background-color: #f0fbff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+        .helado:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.13);
+        }
+        .helado img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .helado-info {
+            padding: 20px;
+        }
+        .helado h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+            color: #075985;
+        }
+        .precio {
+            font-size: 20px;
+            color: #168aad;
+            font-weight: bold;
+        }
+        /* FUNDADORES */
+        .fundadores {
+            background: linear-gradient(135deg, #e0f7ff, #f8fdff);
+        }
+        .equipo {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 35px;
+        }
+        .persona {
+            background-color: white;
+            width: 250px;
+            padding: 35px 20px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .persona .icono {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+        .persona h3 {
+            font-size: 24px;
+            color: #075985;
+        }
+        .persona p {
+            margin-top: 10px;
+            color: #52758b;
+        }
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: #075985;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            line-height: 1.8;
+        }
+        /* ADAPTACIÓN PARA CELULARES */
+        @media (max-width: 900px) {
+            .sabores {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            header {
+                padding: 15px 4%;
+            }
+            .logo {
+                font-size: 23px;
+            }
+            nav {
+                gap: 6px;
+            }
+            nav button {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+        }
+        @media (max-width: 500px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .inicio h1 {
+                font-size: 40px;
+            }
+            .inicio p {
+                font-size: 16px;
+            }
+            section h2 {
+                font-size: 30px;
+            }
+            .sabores {
+                grid-template-columns: 1fr;
+            }
+            .helado img {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA SUPERIOR -->
+    <header>
+        <div class="logo">❄ Frostella</div>
+        <nav>
+            <button onclick="irA('inicio')">Inicio</button>
+            <button onclick="irA('menu')">Menú</button>
+            <button onclick="irA('fundadores')">Fundadores</button>
+        </nav>
+    </header>
+    <!-- INICIO -->
+    <section class="inicio" id="inicio">
+        <div class="logo-grande">🍦❄️</div>
+        <h1>Frostella</h1>
+        <p>
+            ¡Disfruta el sabor de lo natural!
+            En Frostella creemos que comer saludable también puede ser
+            delicioso. Por eso ofrecemos helados con sabores frutales,
+            ideales para refrescar tu día y disfrutar de un momento especial.
+        </p>
+        <button class="boton-principal" onclick="irA('menu')">
+            Descubre nuestros sabores
+        </button>
+    </section>
+    <!-- MENÚ -->
+    <section class="menu" id="menu">
+        <h2>Nuestros sabores 🍓</h2>
+        <p class="descripcion">
+            Encuentra tu favorito y disfruta una experiencia refrescante.
+            Cada sabor tiene un precio de $2.000 COP.
+        </p>
+        <div class="sabores">
+            <!-- HELADO DE FRESA -->
+            <article class="helado">
+                <!-- CAMBIA "images/fresa.jpg" POR LA RUTA DE TU FOTO -->
+                <img
+                    src="images/fresa.jpg"
+                    alt="Helado de fresa"
+                    onerror="this.style.display='none'"
+                >
+                <div class="helado-info">
+                    <h3>🍓 Fresa</h3>
+                    <p class="precio">$2.000 COP</p>
+                </div>
+            </article>
+            <!-- HELADO DE MANGO -->
+            <article class="helado">
+                <img
+                    src="images/mango.jpg"
+                    alt="Helado de mango"
+                    onerror="this.style.display='none'"
+                >
+                <div class="helado-info">
+                    <h3>🥭 Mango</h3>
+                    <p class="precio">$2.000 COP</p>
+                </div>
+            </article>
+            <!-- HELADO DE MORA -->
+            <article class="helado">
+                <img
+                    src="images/mora.jpg"
+                    alt="Helado de mora"
+                    onerror="this.style.display='none'"
+                >
+                <div class="helado-info">
+                    <h3>🫐 Mora</h3>
+                    <p class="precio">$2.000 COP</p>
+                </div>
+            </article>
+            <!-- HELADO DE COCO -->
+            <article class="helado">
+                <img
+                    src="images/coco.jpg"
+                    alt="Helado de coco"
+                    onerror="this.style.display='none'"
+                >
+                <div class="helado-info">
+                    <h3>🥥 Coco</h3>
+                    <p class="precio">$2.000 COP</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- FUNDADORES -->
+    <section class="fundadores" id="fundadores">
+        <h2>Conoce a los fundadores</h2>
+        <p class="descripcion">
+            Frostella nació gracias a la iniciativa y creatividad
+            de quienes quisieron ofrecer una forma deliciosa
+            de disfrutar los helados.
+        </p>
+        <div class="equipo">
+            <article class="persona">
+                <div class="icono">👨‍💼</div>
+                <h3>Alejandro</h3>
+                <p>Co fundador de Frostella</p>
+            </article>
+            <article class="persona">
+                <div class="icono">👨‍💼</div>
+                <h3>Diego</h3>
+                <p>Co fundador de Frostella</p>
+            </article>
+        </div>
+    </section>
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <h3>❄ Frostella</h3>
+        <p>Helados saludables, momentos inolvidables.</p>
+        <p>&copy; 2026 Frostella. Todos los derechos reservados.</p>
+    </footer>
+    <!-- FUNCIONES DE LOS BOTONES -->
+    <script>
+        function irA(seccion) {
+            const destino = document.getElementById(seccion);
+            if (destino) {
+                destino.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        }
+    </script>
+</body>
+</html>
